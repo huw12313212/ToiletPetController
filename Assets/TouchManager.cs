@@ -11,7 +11,7 @@ public class TouchManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-	
+		Input.multiTouchEnabled = false;
 	}
 
 	public GameObject lastClicked = null;
@@ -47,10 +47,12 @@ public class TouchManager : MonoBehaviour {
 		lastPosition = pos;
 	}
 
+
+
 	void TouchUpdate ()
 	{
 
-		Touch t = Input.GetTouch (Input.touchCount-1);
+		Touch t = Input.GetTouch (0);
 
 		Vector3 pos = nowCamera.ScreenToWorldPoint (t.position);
 
