@@ -28,6 +28,17 @@ public class NetworkManager : MonoBehaviour {
 		ws.Send(str);
 	}
 
+	public void PlaySound(string name,float volume)
+	{
+		JSONObject data = new JSONObject();
+		
+		data.AddField("command","playSound");
+		data.AddField("target",name);
+		data.AddField("volume",volume);
+
+		ws.Send(data.ToString());
+	}
+
 	public void UpdatePosition(string name,float x,float y)
 	{
 			JSONObject data = new JSONObject();
@@ -44,18 +55,16 @@ public class NetworkManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		/*
+
 		if (Input.GetKeyDown (KeyCode.W))
 		{
 			JSONObject data = new JSONObject();
 
-			data.AddField("command","updatePosition");
-			data.AddField("target","eye");
-			data.AddField("x",0);
-			data.AddField("y",0);
+			data.AddField("command","playSound");
+			data.AddField("target","assets/Shutter-02.wav");
 
 			Debug.Log("W pressed");
 			ws.Send(data.ToString());
-		}*/
+		}
 	}
 }
