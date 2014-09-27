@@ -7,21 +7,35 @@ public class GUIManager : MonoBehaviour {
 
 	void OnGUI() {
 
-		float width = 300;
-		float height = 700;
+		float width = 100;
+		float height = 100;
 		int index = 0;
+		int indexZ = 0;
 	
-		if (GUI.Button (new Rect (index*300, 0, width, height), "Test")) 
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Test")) 
 		{
 			networkManager.PlaySound("assets/Shutter-02.wav",1);
 		}
 		index++;
 
-		if (GUI.Button (new Rect (index*300, 0, width, height), "ha")) 
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "ha")) 
 		{
 			networkManager.PlaySound("assets/ahahaha.mp3",0.5f);
 		}
 
+		indexZ++;
+		index = 0;
+
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "up")) 
+		{
+			networkManager.Servo(true);
+		}
+		index++;
+
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "down")) 
+		{
+			networkManager.Servo(false);
+		}
 		// assets/ahahaha.mp3
 		
 	}

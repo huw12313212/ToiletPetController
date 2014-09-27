@@ -28,6 +28,18 @@ public class NetworkManager : MonoBehaviour {
 		ws.Send(str);
 	}
 
+	public void Servo(bool up)
+	{
+		JSONObject data = new JSONObject();
+		
+		data.AddField("command","servo");
+		data.AddField("target",name);
+		data.AddField("value",up);
+		
+		ws.Send(data.ToString());
+
+	}
+
 	public void PlaySound(string name,float volume)
 	{
 		JSONObject data = new JSONObject();
