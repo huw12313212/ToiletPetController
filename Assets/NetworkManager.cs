@@ -28,6 +28,37 @@ public class NetworkManager : MonoBehaviour {
 		ws.Send(str);
 	}
 
+	public void PlayAnimation(string str)
+	{
+		JSONObject data = new JSONObject();
+		
+		data.AddField("command","playAnimation");
+		data.AddField("name",str);
+		
+		ws.Send(data.ToString());
+	}
+
+	public void setLoop(bool value)
+	{
+
+		JSONObject data = new JSONObject();
+		
+		data.AddField("command","loop");
+		data.AddField("value",value);
+		
+		ws.Send(data.ToString());
+	}
+
+	public void setRandom(bool value)
+	{
+		JSONObject data = new JSONObject();
+		
+		data.AddField("command","random");
+		data.AddField("value",value);
+		
+		ws.Send(data.ToString());
+	}
+
 	public void Servo(bool up)
 	{
 		JSONObject data = new JSONObject();
