@@ -7,14 +7,15 @@ public class GUIManager : MonoBehaviour {
 	public bool random = false;
 	public bool loop = false;
 	public List<string> animations;
-	public bool servo = false;
+	public bool servo = true;
+
+	public float width = 30;
+	public float height = 30;
 
 	public NetworkManager networkManager;
 
 	void OnGUI() {
 
-		float width = 300;
-		float height = 300;
 		int index = 0;
 		int indexZ = 0;
 
