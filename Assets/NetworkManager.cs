@@ -36,6 +36,7 @@ public class NetworkManager : MonoBehaviour {
 		data.AddField("name",str);
 		
 		ws.Send(data.ToString());
+		Debug.Log (data.ToString());
 	}
 
 	public void setLoop(bool value)
@@ -47,6 +48,7 @@ public class NetworkManager : MonoBehaviour {
 		data.AddField("value",value);
 		
 		ws.Send(data.ToString());
+		Debug.Log (data.ToString());
 	}
 
 	public void setRandom(bool value)
@@ -57,6 +59,7 @@ public class NetworkManager : MonoBehaviour {
 		data.AddField("value",value);
 		
 		ws.Send(data.ToString());
+		Debug.Log (data.ToString());
 	}
 
 	public void Servo(bool up)
@@ -68,6 +71,7 @@ public class NetworkManager : MonoBehaviour {
 		data.AddField("value",up);
 		
 		ws.Send(data.ToString());
+		Debug.Log (data.ToString());
 
 	}
 
@@ -80,6 +84,7 @@ public class NetworkManager : MonoBehaviour {
 		data.AddField("volume",volume);
 
 		ws.Send(data.ToString());
+		Debug.Log (data.ToString());
 	}
 
 	public void UpdatePosition(string name,float x,float y)
@@ -91,6 +96,7 @@ public class NetworkManager : MonoBehaviour {
 			data.AddField("x",x);
 			data.AddField("y",y);
 			ws.Send(data.ToString());
+		Debug.Log (data.ToString());
 	}
 
 
@@ -108,6 +114,7 @@ public class NetworkManager : MonoBehaviour {
 
 			Debug.Log("W pressed");
 			ws.Send(data.ToString());
+			Debug.Log (data.ToString());
 		}
 	}
 }
