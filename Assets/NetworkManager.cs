@@ -62,8 +62,15 @@ public class NetworkManager : MonoBehaviour {
 		Debug.Log (data.ToString());
 	}
 
+	public void FlipServo()
+	{
+		servoState = !servoState;
+		Servo(servoState);
+	}
+
 	public void Servo(bool up)
 	{
+		servoState = up;
 		JSONObject data = new JSONObject();
 		
 		data.AddField("command","servo");
@@ -100,6 +107,7 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 
+	public bool servoState = true;
 
 	// Update is called once per frame
 	void Update () {

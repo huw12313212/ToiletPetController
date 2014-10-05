@@ -44,6 +44,12 @@ public class GUIManager : MonoBehaviour {
 				networkManager.PlaySound(soundName,soundVolume);
 			}
 			index++;	
+
+			if(index >=6)
+			{
+				indexZ++;
+				index =0;
+			}
 		}
 
 
@@ -75,12 +81,12 @@ public class GUIManager : MonoBehaviour {
 		indexZ++;
 		index = 0;
 
-		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Happy")) 
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Pull")) 
 		{
 			CancelInvoke();
 
 			networkManager.PlayAnimation("Happy");
-			networkManager.PlaySound("assets/Hehehe.mp3",1);
+			networkManager.PlaySound("assets/FunnyBoy.mp3",1);
 			networkManager.Servo(true);
 
 			Invoke("ServoDown",1);
@@ -92,28 +98,79 @@ public class GUIManager : MonoBehaviour {
 
 		index++;
 
-		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "LeftRight")) 
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Hello")) 
 		{
 			CancelInvoke();
 			
-			networkManager.PlayAnimation("LeftRight");
-			networkManager.PlaySound("assets/Hehehe.mp3",1);
+			networkManager.PlayAnimation("Normal");
+			networkManager.PlaySound("assets/Hello.mp3",1);
 			networkManager.Servo(true);
 			
 			Invoke("ServoDown",1);
 			Invoke("ServoUp",2);
 			Invoke("ServoDown",3);
 			Invoke("ServoUp",4);
+			Invoke("Normal", 3);
+			//Invoke("Blink", 5);
+		}
+		
+		index++;
+
+
+
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Pew")) 
+		{
+			CancelInvoke();
+			
+			//networkManager.PlayAnimation("Shine");
+			this.ShineFaceNext();
+			networkManager.PlaySound("assets/Pew.mp3",1);
+			networkManager.FlipServo();
+
 
 		}
 		index++;
+
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "ByeBye")) 
+		{
+			CancelInvoke();
+			
+			networkManager.PlayAnimation("Normal");
+			networkManager.PlaySound("assets/ByeBye.mp3",1);
+			Invoke("ServoDown",1);
+			Invoke("ServoUp",2);
+			Invoke("ServoDown",3);
+			Invoke("ServoUp",4);
+			Invoke("Normal", 3);
+			
+		}
+		index++;
+
+
 		
 		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Pat")) 
 		{
 			CancelInvoke();
 			
-			networkManager.PlayAnimation("Normal");
-			networkManager.PlaySound("assets/BatBat.mp3",1);
+			networkManager.PlayAnimation("Love");
+			networkManager.PlaySound("assets/LoveUDaddy.mp3",1);
+			networkManager.Servo(true);
+			
+			Invoke("ServoDown",1);
+			Invoke("ServoUp",2);
+			Invoke("ServoDown",3);
+			Invoke("ServoUp",4);
+			
+		}
+
+		index++;
+
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Cry")) 
+		{
+			CancelInvoke();
+			
+			networkManager.PlayAnimation("Cry");
+			networkManager.PlaySound("assets/What.mp3",1);
 			networkManager.Servo(true);
 			
 			Invoke("ServoDown",1);
@@ -125,6 +182,70 @@ public class GUIManager : MonoBehaviour {
 
 		index++;
 		
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "badSmile")) 
+		{
+			CancelInvoke();
+			
+			networkManager.PlayAnimation("Happy");
+			networkManager.PlaySound("assets/Hehehe.mp3",1);
+
+
+			networkManager.Servo(true);
+			Invoke("ServoDown",1);
+			Invoke("ServoUp",2);
+			Invoke("ServoDown",3);
+			Invoke("ServoUp",4);
+		}
+
+		index++;
+		
+		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Dazzy")) 
+		{
+			CancelInvoke();
+			
+			networkManager.PlayAnimation("Dazzy");
+			networkManager.PlaySound("assets/Nay.mp3",1);
+			
+			
+			networkManager.Servo(true);
+			Invoke("ServoDown",1f);
+			Invoke("ServoUp",1.5f);
+			Invoke("ServoDown",2f);
+			Invoke("ServoUp",2.5f);
+			Invoke("ServoDown",3f);
+			Invoke("ServoUp",3.5f);
+			Invoke("ServoDown",4f);
+			Invoke("ServoUp",4.5f);
+			Invoke("ServoDown",5f);
+			Invoke("ServoUp",5.5f);
+			Invoke("ServoDown",6f);
+			Invoke("ServoUp",6.5f);
+			Invoke("ServoDown",7f);
+			Invoke("ServoUp",7.5f);
+			Invoke("ServoDown",8f);
+			Invoke("ServoUp",8.5f);
+			Invoke("ServoDown",9f);
+			Invoke("ServoUp",9.5f);
+			Invoke("ServoDown",10f);
+			Invoke("ServoUp",10.5f);
+			Invoke("ServoDown",11f);
+			Invoke("ServoUp",11.5f);
+			Invoke("ServoDown",12f);
+			Invoke("ServoUp",12.5f);
+			Invoke("ServoDown",13f);
+			Invoke("ServoUp",13.5f);
+			Invoke("ServoDown",14f);
+			Invoke("ServoUp",14.5f);
+			Invoke("ServoDown",15f);
+			Invoke("ServoUp",15.5f);
+			Invoke("ServoDown",16f);
+			Invoke("ServoUp",16.5f);
+			Invoke("ServoDown",17f);
+			Invoke("ServoUp",17.5f);
+			Invoke("ServoDown",18f);
+			Invoke("ServoUp",18.5f);
+		}
+		/*
 		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "NO")) 
 		{
 			CancelInvoke();
@@ -139,9 +260,27 @@ public class GUIManager : MonoBehaviour {
 			Invoke("ServoUp",4);
 			
 		}
-
+*/
 
 	}
+	public bool servoState = true;
+
+	public void FlipServo()
+	{
+		networkManager.FlipServo ();
+
+	}
+
+	public void ShineFaceNext()
+	{
+		int result = ShineCount + 1;
+		ShineCount = (ShineCount + 1) % ShineLength;
+
+		networkManager.PlayAnimation("Shine"+ShineCount);
+	}
+
+	public int ShineCount = 0;
+	public int ShineLength = 3;
 
 	public void ServoDown()
 	{
@@ -153,9 +292,29 @@ public class GUIManager : MonoBehaviour {
 		networkManager.Servo(true);
 	}
 
+	public void Normal()
+	{
+		networkManager.PlayAnimation("Normal");
+	}
+
 	public void Blink()
 	{
 		networkManager.PlayAnimation("Happy");
+	}
+
+	public void Shine()
+	{
+		networkManager.PlayAnimation("Shine");
+	}
+
+	public void Love()
+	{
+		networkManager.PlayAnimation("Love");
+	}
+
+	public void LeftRight()
+	{
+		networkManager.PlayAnimation("LeftRight");
 	}
 	
 	// Use this for initialization
