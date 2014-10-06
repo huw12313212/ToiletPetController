@@ -21,7 +21,12 @@ public class GUIManager : MonoBehaviour {
 
 		int index = 0;
 		int indexZ = 0;
+		int UnitWidth = Screen.width/3;
+		int UnitHeight = Screen.height/3;
 
+		width = UnitWidth;
+		height = UnitHeight;
+		/*
 
 		foreach(string anim in animations)
 		{
@@ -80,20 +85,26 @@ public class GUIManager : MonoBehaviour {
 
 		indexZ++;
 		index = 0;
+		*/
+
+		index = 0;
 
 		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "Pull")) 
 		{
 			CancelInvoke();
 
-			networkManager.PlayAnimation("Happy");
+			networkManager.PlayAnimation("Normal");
 			networkManager.PlaySound("assets/FunnyBoy.mp3",1);
 			networkManager.Servo(true);
 
 			Invoke("ServoDown",1);
 			Invoke("ServoUp",2);
 			Invoke("ServoDown",3);
-			Invoke("Blink", 3);
+			Invoke("Normal", 3);
 			Invoke("ServoUp",4);
+
+			
+			Invoke("Normal", 6);
 		}
 
 		index++;
@@ -111,6 +122,8 @@ public class GUIManager : MonoBehaviour {
 			Invoke("ServoDown",3);
 			Invoke("ServoUp",4);
 			Invoke("Normal", 3);
+
+
 			//Invoke("Blink", 5);
 		}
 		
@@ -129,7 +142,9 @@ public class GUIManager : MonoBehaviour {
 
 
 		}
-		index++;
+
+		indexZ++;
+		index=0;
 
 		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "ByeBye")) 
 		{
@@ -160,7 +175,8 @@ public class GUIManager : MonoBehaviour {
 			Invoke("ServoUp",2);
 			Invoke("ServoDown",3);
 			Invoke("ServoUp",4);
-			
+
+			Invoke("Normal", 6);
 		}
 
 		index++;
@@ -177,10 +193,14 @@ public class GUIManager : MonoBehaviour {
 			Invoke("ServoUp",2);
 			Invoke("ServoDown",3);
 			Invoke("ServoUp",4);
+
+
 			
+			Invoke("Normal", 6);
 		}
 
-		index++;
+		indexZ++;
+		index=0;
 		
 		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "badSmile")) 
 		{
@@ -195,6 +215,9 @@ public class GUIManager : MonoBehaviour {
 			Invoke("ServoUp",2);
 			Invoke("ServoDown",3);
 			Invoke("ServoUp",4);
+
+			
+			Invoke("Normal", 6);
 		}
 
 		index++;
@@ -244,6 +267,19 @@ public class GUIManager : MonoBehaviour {
 			Invoke("ServoUp",17.5f);
 			Invoke("ServoDown",18f);
 			Invoke("ServoUp",18.5f);
+
+			Invoke("Normal", 19);
+
+
+		}
+
+		index++;
+
+		if (GUI.Button (new Rect (index * width, indexZ * height, width, height), "LeftRight")) 
+		{
+			CancelInvoke ();
+
+			networkManager.PlayAnimation("LeftRight");
 		}
 		/*
 		if (GUI.Button (new Rect (index*width, indexZ*height, width, height), "NO")) 
@@ -263,6 +299,10 @@ public class GUIManager : MonoBehaviour {
 */
 
 	}
+
+
+
+
 	public bool servoState = true;
 
 	public void FlipServo()

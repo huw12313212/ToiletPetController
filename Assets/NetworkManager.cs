@@ -75,7 +75,7 @@ public class NetworkManager : MonoBehaviour {
 		
 		data.AddField("command","servo");
 		data.AddField("target",name);
-		data.AddField("value",up);
+		data.AddField("value",!up);
 		
 		ws.Send(data.ToString());
 		Debug.Log (data.ToString());
